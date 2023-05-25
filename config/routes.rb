@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :profiles, only: [:index, :create, :destroy]
+  put '/profiles', to: 'profiles#update'
+  delete '/profiles', to: 'profiles#destroy'
+
   resources :books, only: [:index, :show, :create, :update, :destroy] do
     post 'upload', on: :collection
   end
